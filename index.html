@@ -64,7 +64,6 @@
     </style>
     <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script type="text/javascript">
-
         var URLS = {
             web: 'https://google.com/search?q=',
             image: 'http://bing.com/images/search?q=',
@@ -78,11 +77,13 @@
         $(function() {
             var $form = $('form');
             var $q = $('#q');
+            var $menus = $('.menu');
+
             $form.attr('action', DEFAULT_ACTION);
             $q.change(setLinks);
 
             function setLinks() {
-                $('.menu').find('a').get().forEach(function(link) {
+                $menus.find('a').get().forEach(function(link) {
                     $(link).attr('href', URLS[link.id] + $q.val());
                 });
             }

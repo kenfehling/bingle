@@ -73,21 +73,35 @@
             shopping: 'https://google.com/search?tbm=shop&q=',
             goto: 'http://'
         };
-        var DEFAULT_ACTION = URLS.web;
+        var DEFAULT_ACTION = 'web';
         $(function() {
             var $form = $('form');
             var $q = $('#q');
             var $menus = $('.menu');
 
-            $form.attr('action', DEFAULT_ACTION);
+            $form.attr('action', URLS[DEFAULT_ACTION]);
             $q.change(setLinks);
 
+            function forEachMenuLink(f) {
+                $menus.find('a').get().forEach(f);
+            }
+
             function setLinks() {
-                $menus.find('a').get().forEach(function(link) {
+                forEachMenuLink(function(link) {
                     $(link).attr('href', URLS[link.id] + $q.val());
                 });
             }
+
+            function addTabIndexes() {
+                forEachMenuLink(function(link, i) {
+                    if (link.id !== DEFAULT_ACTION) {
+                        $(link).attr('tabindex', i + 2);
+                    }
+                });
+            }
+
             setLinks();
+            addTabIndexes();
         });
     </script>
 </head>
@@ -104,7 +118,7 @@
     </table>
     <form>
         <label id="q-label" for="q">Search:</label>
-        <input id="q" name="q" type="text" autofocus>
+        <input id="q" name="q" type="text" autofocus tabindex="1">
     </form>
     <div class="menu">
         <a id="goto">Go to URL</a>

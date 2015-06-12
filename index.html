@@ -14,6 +14,26 @@
             background-color: #D7D7D7;
         }
 
+        a {
+            text-decoration: none;
+            color: #00F;
+            outline: 0;
+            padding: 7px 9px 5px 9px;
+        }
+
+        a:hover, a:focus, a.default {
+            border: thin solid #00F;
+        }
+
+        a:hover, a:focus {
+            color: #D7D7D7;
+            background-color: #00F;
+        }
+
+        a:focus {
+            outline: none;
+        }
+
         body {
             padding-bottom: 48px;
             position: relative;
@@ -26,14 +46,6 @@
         body, #q {
             font-family: Helvetica, Arial, sans-serif;
             font-size: 14px;
-        }
-
-        a {
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
         }
 
         .menu {
@@ -94,7 +106,10 @@
 
             function addTabIndexes() {
                 forEachMenuLink(function(link, i) {
-                    if (link.id !== DEFAULT_ACTION) {
+                    if (link.id === DEFAULT_ACTION) {
+                        $(link).addClass('default');
+                    }
+                    else {
                         $(link).attr('tabindex', i + 2);
                     }
                 });

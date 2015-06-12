@@ -64,6 +64,7 @@
     </style>
     <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script type="text/javascript">
+
         var URLS = {
             web: 'https://google.com/search?q=',
             image: 'http://bing.com/images/search?q=',
@@ -73,10 +74,11 @@
             shopping: 'https://google.com/search?tbm=shop&q=',
             goto: 'http://'
         };
+        var DEFAULT_ACTION = URLS.web;
         $(function() {
             var $form = $('form');
             var $q = $('#q');
-            $form.attr('action', URLS['web']);
+            $form.attr('action', DEFAULT_ACTION);
             $q.change(setLinks);
 
             function setLinks() {

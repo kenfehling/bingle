@@ -48,19 +48,20 @@
             font-size: 14px;
         }
 
-        .menu {
-            width: 720px;
-            margin: 20px auto;
+        table#menu {
+            width: 640px;
             text-align: center;
+            table-layout: fixed;
+            margin: auto;
         }
 
-        table.menu  {
-            table-layout: fixed;
+        #menu td {
+            padding-top: 32px;
         }
 
         form {
             width: 480px;
-            margin: auto;
+            margin: 6px auto;
         }
 
         #q-label {
@@ -89,13 +90,13 @@
         $(function() {
             var $form = $('form');
             var $q = $('#q');
-            var $menus = $('.menu');
+            var $menu = $('#menu');
 
             $form.attr('action', URLS[DEFAULT_ACTION]);
             $q.change(setLinks);
 
             function forEachMenuLink(f) {
-                $menus.find('a').get().forEach(f);
+                $menu.find('a').get().forEach(f);
             }
 
             function setLinks() {
@@ -107,6 +108,7 @@
             function addTabIndexes() {
                 forEachMenuLink(function(link, i) {
                     if (link.id === DEFAULT_ACTION) {
+                        $(link).attr('tabindex', -1);
                         $(link).addClass('default');
                     }
                     else {
@@ -121,7 +123,11 @@
     </script>
 </head>
 <body>
-    <table class="menu">
+    <form>
+        <label id="q-label" for="q">Search:</label>
+        <input id="q" name="q" type="text" autofocus tabindex="1">
+    </form>
+    <table id="menu">
         <tr>
             <td><a id="web">Web</a></td>
             <td><a id="image">Image</a></td>
@@ -130,13 +136,9 @@
             <td><a id="news">News</a></td>
             <td><a id="shopping">Shopping</a></td>
         </tr>
+        <tr>
+            <td colspan="6"><a id="goto">Go to URL</a></td>
+        </tr>
     </table>
-    <form>
-        <label id="q-label" for="q">Search:</label>
-        <input id="q" name="q" type="text" autofocus tabindex="1">
-    </form>
-    <div class="menu">
-        <a id="goto">Go to URL</a>
-    </div>
 </body>
 </html>

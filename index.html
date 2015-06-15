@@ -61,7 +61,7 @@
 
         form {
             width: 480px;
-            margin: 6px auto;
+            margin: 4px auto;
         }
 
         #q-label {
@@ -73,6 +73,13 @@
         #q {
             width: 80%;
             padding: 3px;
+        }
+
+        img#logo {
+            display: block;
+            width: 275;
+            margin: 20px auto;
+
         }
     </style>
     <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
@@ -123,6 +130,7 @@
     </script>
 </head>
 <body>
+    <img id="logo" src="bingle.png">
     <form>
         <label id="q-label" for="q">Search:</label>
         <input id="q" name="q" type="text" autofocus tabindex="1">

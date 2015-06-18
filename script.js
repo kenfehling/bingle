@@ -1,4 +1,4 @@
-var SCHEMES = ['http://', 'https://']
+var SCHEMES = ['http://', 'https://'];
 var URLS = {
     web: 'https://google.com/search?q=',
     image: 'http://bing.com/images/search?q=',
@@ -8,21 +8,25 @@ var URLS = {
     shopping: 'https://google.com/search?tbm=shop&q=',
     goto: SCHEMES[0]
 };
+var URL_FUNCTIONS = createUrlFunctions();
 
-var urlFunctions = {};
-_.each(URLS, function(url, key) {
-    urlFunctions[key] = _.bind(setLinkWithUrl, {}, url);
-});
-urlFunctions.goto = function(string, link) {
-    var f = _.bind(setLinkWithUrl, {}, URLS.goto);
-    var scheme = getScheme(string);
-    if (scheme) {
-        f(string.slice(scheme.length), link);
-    }
-    else {
-        f(string, link);
-    }
-};
+function createUrlFunctions() {
+    var fs = {};
+    _.each(URLS, function(url, key) {
+        fs[key] = _.bind(setLinkWithUrl, {}, url);
+    });
+    fs.goto = function(string, link) {
+        var f = _.bind(setLinkWithUrl, {}, URLS.goto);
+        var scheme = getScheme(string);
+        if (scheme) {
+            f(string.slice(scheme.length), link);
+        }
+        else {
+            f(string, link);
+        }
+    };
+    return fs;
+}
 
 function getScheme(string) {
     return _.find(SCHEMES, function(scheme) {
@@ -39,7 +43,7 @@ function setLinkWithUrl(url, string, link) {
 }
 
 function setLink(string, link) {
-    urlFunctions[link.id](string, link);
+    URL_FUNCTIONS[link.id](string, link);
     //setLinkWithUrl(string, link, URLS[link.id]);
 }
 

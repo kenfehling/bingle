@@ -10,18 +10,30 @@ html {
 
 a {
     text-decoration: none;
-    color: #00F;
+    color: #03F;
     outline: 0;
     padding: 7px 9px 5px 9px;
 }
 
+a.special {
+    color: #090;
+}
+
 a:hover, a:focus, a.default {
-    border: thin solid #00F;
+    border: thin solid #03F;
+}
+
+a.special:hover, a.special:focus, a.special.default {
+    border: thin solid #090
 }
 
 a:hover, a:focus {
     color: #D7D7D7;
-    background-color: #00F;
+    background-color: #03F;
+}
+
+a.special:hover, a.special:focus {
+    background-color: #090;
 }
 
 a:focus {

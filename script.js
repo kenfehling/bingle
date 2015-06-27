@@ -4,6 +4,7 @@ var URLS = {
     bing_web: 'http://bing.com/search?q=',
     image: 'http://bing.com/images/search?q=',
     video: 'http://bing.com/videos/search?q=',
+    youtube: 'https://www.youtube.com/results?search_query=',
     maps: 'https://maps.google.com/maps?q=',
     news: 'http://bing.com/news/search?q=',
     shopping: 'https://google.com/search?tbm=shop&q=',

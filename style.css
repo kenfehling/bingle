@@ -52,6 +52,7 @@ table#menu {
 
 #menu td {
     padding-top: 32px;
+    vertical-align: top;
 }
 
 form {

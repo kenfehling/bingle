@@ -1,6 +1,7 @@
 var SCHEMES = ['http://', 'https://'];
 var URLS = {
     web: 'https://google.com/search?q=',
+    bing_web: 'http://bing.com/search?q=',
     image: 'http://bing.com/images/search?q=',
     video: 'http://bing.com/videos/search?q=',
     maps: 'https://maps.google.com/maps?q=',

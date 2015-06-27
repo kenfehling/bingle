@@ -7,7 +7,8 @@ var URLS = {
     maps: 'https://maps.google.com/maps?q=',
     news: 'http://bing.com/news/search?q=',
     shopping: 'https://google.com/search?tbm=shop&q=',
-    goto: SCHEMES[0]
+    goto: SCHEMES[0],
+    com: SCHEMES[0]
 };
 var URL_FUNCTIONS = createUrlFunctions();
 
@@ -25,6 +26,9 @@ function createUrlFunctions() {
         else {
             f(string, link);
         }
+    };
+    fs.com = function(string, link) {
+        setLinkWithUrl(URLS.com, string + ".com", link);
     };
     return fs;
 }

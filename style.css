@@ -11,6 +11,9 @@ html {
 a {
     text-decoration: none;
     color: #03F;
+}
+
+#menu a {
     outline: 0;
     padding: 7px 9px 5px 9px;
 }
@@ -19,24 +22,24 @@ a.special {
     color: #090;
 }
 
-a:hover, a:focus, a.default {
+#menu a:hover, #menu a:focus, #menu a.default {
     border: thin solid #03F;
 }
 
-a.special:hover, a.special:focus, a.special.default {
+#menu a.special:hover, #menu a.special:focus, #menu a.special.default {
     border: thin solid #090
 }
 
-a:hover, a:focus {
+#menu a:hover, #menu a:focus {
     color: #D7D7D7;
     background-color: #03F;
 }
 
-a.special:hover, a.special:focus {
+#menu a.special:hover, #menu a.special:focus {
     background-color: #090;
 }
 
-a:focus {
+#menu a:focus {
     outline: none;
 }
 
@@ -85,4 +88,12 @@ form {
 
 img#logo {
     margin: 18px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+footer hr {
+    margin: 20px 0;
 }
